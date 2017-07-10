@@ -1,11 +1,12 @@
-
 #Epsilon 
 
+Python implementation of epsilon project.
 
 ----------
 
-
-Python implementation of epsilon project.
+Payloads added:
+[*] keylogger
+[*] satelite image logger with ftp support
 
 
 ----------
