@@ -1,8 +1,18 @@
 import threading 
 import os
 
+ASCII_DATA = '''
+        8""""                                 
+        8     eeeee eeeee e  e     eeeee eeeee
+        8eeee 8   8 8   " 8  8     8  88 8   8
+        88    8eee8 8eeee 8e 8e    8   8 8e  8
+        88    88       88 88 88    8   8 88  8
+        88eee 88    8ee88 88 88eee 8eee8 88  8
+\n\n
 
-print("Welcome to Epsilon!!!\n")
+'''
+
+print(ASCII_DATA)
 print("Select yor payloads (seprated by spaces) :")
 print("1.Satelite")
 print("2.KeyLogger")
