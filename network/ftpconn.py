@@ -10,14 +10,24 @@ def init_creditinals(addr,usr,pssd):
     ADDRESS = addr
     USERNAME = usr
     PASSWORD = pssd
-    Transfer = ftplib.FTP(ADDRESS,USERNAME,PASSWORD)
+    try:
+        Transfer = ftplib.FTP(ADDRESS,USERNAME,PASSWORD)
+    except:
+        init_creditinals(ADDRESS,USERNAME,PASSWORD)
 
 def OnScriptEnd():
     print("Script ending")
     Transfer.quit()
 
 def upload_to_ftp(name,upname,mode):
-    file = open(name,mode)   
-    Transfer.storbinary('STOR ' + upname , file)    
-    file.close()
+   
+    try:
+        file = open(name,mode)   
+        Transfer.storbinary('STOR ' + upname , file) 
+        file.close()
+    
+    except Exception as e:
+        print("Error: upload to ftp failed : ",e)
+        print("name : ",name ,"upname : ",upname,"mode : ",mode)
+        pass
                           
