@@ -6,7 +6,10 @@ Python implementation of epsilon project.
 
 ###### Payloads added:
 * keylogger
-* satelite image logger with ftp support
+* image logger
+###### Communication medias
+* ftp
+* discord bot
 
 
 ----------
