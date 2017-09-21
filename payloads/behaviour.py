@@ -15,7 +15,7 @@ def restart_program():
         for handler in p.open_files()+ p.connections():
             os.close(handler.fd)
     except Exception as e:
-        print(str(e))
+        print("***[Restarting failed] "+str(e))
 
     python = sys.executable
     os.execl(python, python, *sys.argv)
@@ -24,7 +24,7 @@ def restart_program():
 
 def OnExceptSignal(exc_type, exc_value, tb):
     exce = traceback.format_exception(exc_type,exc_value,tb)
-    print(str(e))
+    print("[Error dude] "+str(exce))
     restart_program()
 
 sys.excepthook = OnExceptSignal

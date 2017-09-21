@@ -1,5 +1,6 @@
 import threading 
 import os
+import shutil
 
 ASCII_DATA = '''
         8""""                                 
@@ -58,9 +59,15 @@ File.close()
 Create_Binary = input("Do you want to compile and create binary of created payload? (Y/N)")
 
 if Create_Binary == 'Y' or Create_Binary == 'y':
-    cmd = "pyinstaller "+ Name+".py" + " -F"
+    cmd = "pyinstaller "+ Name+".py" + ' -y --distpath="." --workpath="." --clean -F'
     if not DEBUG :
         cmd = cmd + " --windowed"
     if iconfile is not "":
+        if '.ico' not in iconfile:
+            iconfile = iconfile + '.ico'
         cmd = cmd + " --icon="+iconfile
+     
     os.system(cmd) 
+    shutil.rmtree(Name)
+    os.remove(Name+'.spec')
+    
