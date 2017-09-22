@@ -11,7 +11,7 @@ def collectimage():
             dest_path =  os.path.expandvars("%userprofile%") +'\\Documents\\'
         else:
             dest_path = os.path.expanduser('~')
-        
+        print(dest_path)
         screen.shot(mon=-1, output=(dest_path + 'tempic.png'))
         
         return True

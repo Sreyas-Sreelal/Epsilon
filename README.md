@@ -11,7 +11,6 @@ Python implementation of epsilon project.
 * ftp
 * discord bot
 
-
 ----------
 
 

@@ -5,7 +5,7 @@ import traceback
 import shutil
 
 if sys.platform == "win32":
-    dest_path =  os.path.expandvars("%userprofile%")+'\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"'
+    dest_path =  os.path.expandvars("%userprofile%")+'\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup'
 else:
     dest_path = os.path.expanduser('~')
 
