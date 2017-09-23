@@ -17,10 +17,8 @@ def init_creditinals(addr,usr,pssd):
     ADDRESS = addr
     USERNAME = usr
     PASSWORD = pssd
-    try:
-        Transfer = ftplib.FTP(ADDRESS,USERNAME,PASSWORD)
-    except:
-        init_creditinals(ADDRESS,USERNAME,PASSWORD)
+    Transfer = ftplib.FTP(ADDRESS,USERNAME,PASSWORD)
+    #init_creditinals(ADDRESS,USERNAME,PASSWORD)
 
 def OnScriptEnd():
     print("Script ending")
