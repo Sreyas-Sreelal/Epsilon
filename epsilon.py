@@ -21,8 +21,7 @@ DEBUG = True
 
 
 
-DEBUG = bool(input(pr
-int_green("Debug mode(True/False) : ")))
+DEBUG = bool(input(print_green("Debug mode(True/False) : ")))
 Name = input(print_yellow("Provide name of the binary : "))
 
 print_green("Input network pathway for communication:")
