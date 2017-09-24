@@ -43,7 +43,7 @@ def print_cyan( str ):
     print(  Style.BRIGHT + Fore.CYAN + str  );
     return ""
 
-def sucess( str ):
+def success( str ):
     print( Style.BRIGHT + Fore.YELLOW + "\n[***]" + Fore.GREEN + str );
     return ""
 

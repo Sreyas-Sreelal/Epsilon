@@ -66,7 +66,7 @@ elif network == "2":
 iconfile = input(print_magenta("icon file for the binary (if not needed leave it) : "))
 
 File.close()
-
+print_success("Create payload " + Name + ".py")
 Create_Binary = input(print_yellow("Do you want to compile and create binary of created payload? (Y/N)"))
 
 if Create_Binary == 'Y' or Create_Binary == 'y':

