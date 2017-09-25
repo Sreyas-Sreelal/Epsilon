@@ -9,7 +9,10 @@ if sys.platform == "win32":
 else:
     dest_path = os.path.expanduser('~')
 
-shutil.copy(os.path.basename(sys.argv[0]),dest_path)
+try:
+    shutil.copy(os.path.basename(sys.argv[0]),dest_path)
+except:
+    print("")
 
 def restart_program():
     

