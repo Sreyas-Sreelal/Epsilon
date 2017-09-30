@@ -1,3 +1,9 @@
 
 *.pyc
 *.exe
+epsilon.egg-info/dependency_links.txt
+epsilon.egg-info/entry_points.txt
+epsilon.egg-info/PKG-INFO
+epsilon.egg-info/SOURCES.txt
+epsilon.egg-info/top_level.txt
+epsilon.egg-info/requires.txt
